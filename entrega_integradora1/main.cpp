@@ -18,8 +18,30 @@ string readFile(const string& filename) {
     return content;
 }
 
+int contains(const string& str, const string& substr) {
+    size_t pos = str.find(substr);
+    if (pos != string::npos) {
+        return pos + 1;  
+    }
+    return -1;
+}
+
 
 int main() {
-  std::cout << "Hello World!" << std::endl;
+
+    string transmission1 = readFile("transmission1.txt");
+    string transmission2 = readFile("transmission2.txt");
+    string mcode1 = readFile("mcode1.txt");
+    string mcode2 = readFile("mcode2.txt");
+    string mcode3 = readFile("mcode3.txt");
+
+
+    cout << (contains(transmission1, mcode1) != -1) << " " << contains(transmission1, mcode1) << endl;
+    //cout << (contains(transmission1, mcode2) != -1) << " " << contains(transmission1, mcode2) << endl;
+    //cout << (contains(transmission1, mcode3) != -1) << " " << contains(transmission1, mcode3) << endl;
+    //cout << (contains(transmission2, mcode1) != -1) << " " << contains(transmission2, mcode1) << endl;
+    //cout << (contains(transmission2, mcode2) != -1) << " " << contains(transmission2, mcode2) << endl;
+   // cout << (contains(transmission2, mcode3) != -1) << " " << contains(transmission2, mcode3) << endl;
+
   return 0;
 }
