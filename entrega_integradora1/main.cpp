@@ -3,8 +3,6 @@
 #include <string>
 
 
-
-
 using namespace std;
 
 // Función para leer el contenido de un archivo en una cadena
@@ -18,12 +16,14 @@ string readFile(const string& filename) {
     return content;
 }
 
+// Función para determinar si una cadena contiene a otra
 int contains(const string& str, const string& substr) {
     size_t pos = str.find(substr);
     if (pos != string::npos) {
         return pos + 1;  
     }
-    return -1;
+    return false;
+    
 }
 
 
@@ -36,12 +36,13 @@ int main() {
     string mcode3 = readFile("mcode3.txt");
 
 
-    cout << (contains(transmission1, mcode1) != -1) << " " << contains(transmission1, mcode1) << endl;
-    //cout << (contains(transmission1, mcode2) != -1) << " " << contains(transmission1, mcode2) << endl;
-    //cout << (contains(transmission1, mcode3) != -1) << " " << contains(transmission1, mcode3) << endl;
-    //cout << (contains(transmission2, mcode1) != -1) << " " << contains(transmission2, mcode1) << endl;
-    //cout << (contains(transmission2, mcode2) != -1) << " " << contains(transmission2, mcode2) << endl;
-   // cout << (contains(transmission2, mcode3) != -1) << " " << contains(transmission2, mcode3) << endl;
+    cout << (contains(transmission1, mcode1) != false) << " " << contains(transmission1, mcode1) << endl;
+    cout << (contains(transmission1, mcode2) != false) << " " << contains(transmission1, mcode2) << endl;
+    cout << (contains(transmission1, mcode3) != false) << " " << contains(transmission1, mcode3) << endl;
+    cout << (contains(transmission2, mcode1) != false) << " " << contains(transmission2, mcode1) << endl;
+    cout << (contains(transmission2, mcode2) != false) << " " << contains(transmission2, mcode2) << endl;
+    cout << (contains(transmission2, mcode3) != false) << " " << contains(transmission2, mcode3) << endl;
 
   return 0;
 }
+
